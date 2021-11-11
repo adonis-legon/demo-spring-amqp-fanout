@@ -22,7 +22,7 @@ public class RabbitClient {
 
     @PostConstruct
     private void init() throws UnknownHostException {
-        FanoutExchange exchange = new FanoutExchange(rabbitConfig.getExchangeName());
+        FanoutExchange exchange = new FanoutExchange(rabbitConfig.getExchangeName(), false, false);
         rabbitAdmin.declareExchange(exchange);
 
 		Queue queue = new Queue(rabbitConfig.getQueueName());
